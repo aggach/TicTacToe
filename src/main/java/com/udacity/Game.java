@@ -151,6 +151,50 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
 
+        for (int i=0; i<3; i++)
+        {
+            if (grid[i][0]==grid[i][1] && grid[i][1]==grid[i][2] && grid[i][2]== 'o'){
+                return "O wins";
+            }
+            if (grid[i][0]==grid[i][1] && grid[i][1]==grid[i][2] && grid[i][2]== 'x'){
+                return "x wins";
+            }
+        }
+
+        for (int j=0; j<3; j++)
+        {
+            if (grid[0][j]==grid[1][j] && grid[1][j]==grid[2][j] && grid[2][j]== 'o'){
+                return "O wins";
+            }
+            if (grid[0][j]==grid[1][j] && grid[1][j]==grid[2][j] && grid[2][j]== 'x'){
+                return "x wins";
+            }
+        }
+        if (grid[0][0]==grid[1][1] && grid[1][1]==grid[2][2] && grid[2][2]== 'o'){
+            return "O wins";
+        }
+        if (grid[2][0]==grid[1][1] && grid[1][1]==grid[0][2] && grid[0][2]== 'o'){
+            return "O wins";
+        }
+        if (grid[0][0]==grid[1][1] && grid[1][1]==grid[2][2] && grid[2][2]== 'x'){
+            return "x wins";
+        }
+        if (grid[2][0]==grid[1][1] && grid[1][1]==grid[0][2] && grid[0][2]== 'x'){
+            return "x wins";}
+
+        boolean fullFill = true;
+
+        for (int i=0; i<3; i++){
+            for (int j=0; j<3; j++){
+                if(grid[i][j] == '-')
+                    fullFill = false;
+            }
+        }
+        if(fullFill)
+            return "Tie";
+
+
+
         return result;
     }
 
